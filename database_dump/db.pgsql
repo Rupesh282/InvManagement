@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: accesses; Type: TABLE; Schema: public; Owner: rupesh
+-- Name: accesses; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.accesses (
@@ -29,10 +29,10 @@ CREATE TABLE public.accesses (
 );
 
 
-ALTER TABLE public.accesses OWNER TO rupesh;
+ALTER TABLE public.accesses OWNER TO postgres;
 
 --
--- Name: category; Type: TABLE; Schema: public; Owner: rupesh
+-- Name: category; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.category (
@@ -41,10 +41,10 @@ CREATE TABLE public.category (
 );
 
 
-ALTER TABLE public.category OWNER TO rupesh;
+ALTER TABLE public.category OWNER TO postgres;
 
 --
--- Name: customer; Type: TABLE; Schema: public; Owner: rupesh
+-- Name: customer; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.customer (
@@ -54,10 +54,10 @@ CREATE TABLE public.customer (
 );
 
 
-ALTER TABLE public.customer OWNER TO rupesh;
+ALTER TABLE public.customer OWNER TO postgres;
 
 --
--- Name: dealers; Type: TABLE; Schema: public; Owner: rupesh
+-- Name: dealers; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.dealers (
@@ -67,10 +67,10 @@ CREATE TABLE public.dealers (
 );
 
 
-ALTER TABLE public.dealers OWNER TO rupesh;
+ALTER TABLE public.dealers OWNER TO postgres;
 
 --
--- Name: employee; Type: TABLE; Schema: public; Owner: rupesh
+-- Name: employee; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.employee (
@@ -83,10 +83,10 @@ CREATE TABLE public.employee (
 );
 
 
-ALTER TABLE public.employee OWNER TO rupesh;
+ALTER TABLE public.employee OWNER TO postgres;
 
 --
--- Data for Name: accesses; Type: TABLE DATA; Schema: public; Owner: rupesh
+-- Data for Name: accesses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.accesses (access_type) FROM stdin;
@@ -97,7 +97,7 @@ manager
 
 
 --
--- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: rupesh
+-- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.category (category_id, category_name) FROM stdin;
@@ -105,7 +105,7 @@ COPY public.category (category_id, category_name) FROM stdin;
 
 
 --
--- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: rupesh
+-- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.customer (contact_no, first_name, last_name) FROM stdin;
@@ -113,7 +113,7 @@ COPY public.customer (contact_no, first_name, last_name) FROM stdin;
 
 
 --
--- Data for Name: dealers; Type: TABLE DATA; Schema: public; Owner: rupesh
+-- Data for Name: dealers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.dealers (dealer_id, dealer_name, dealer_contact_no) FROM stdin;
@@ -121,7 +121,7 @@ COPY public.dealers (dealer_id, dealer_name, dealer_contact_no) FROM stdin;
 
 
 --
--- Data for Name: employee; Type: TABLE DATA; Schema: public; Owner: rupesh
+-- Data for Name: employee; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.employee (employee_id, employee_password, first_name, last_name, contact_no, access_type) FROM stdin;
@@ -130,7 +130,7 @@ COPY public.employee (employee_id, employee_password, first_name, last_name, con
 
 
 --
--- Name: accesses accesses_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
+-- Name: accesses accesses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.accesses
@@ -138,7 +138,7 @@ ALTER TABLE ONLY public.accesses
 
 
 --
--- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
+-- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.category
@@ -146,7 +146,7 @@ ALTER TABLE ONLY public.category
 
 
 --
--- Name: customer customer_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
+-- Name: customer customer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.customer
@@ -154,7 +154,7 @@ ALTER TABLE ONLY public.customer
 
 
 --
--- Name: dealers dealers_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
+-- Name: dealers dealers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.dealers
@@ -162,7 +162,7 @@ ALTER TABLE ONLY public.dealers
 
 
 --
--- Name: employee employee_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
+-- Name: employee employee_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.employee
@@ -170,7 +170,7 @@ ALTER TABLE ONLY public.employee
 
 
 --
--- Name: employee employee_access_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rupesh
+-- Name: employee employee_access_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.employee
