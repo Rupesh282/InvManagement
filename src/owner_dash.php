@@ -8,7 +8,7 @@
 
     session_start();
 
-    if($_SESSION["loggedIn"] == true && isset($_SESSION["name"])) {
+    if($_SESSION["loggedIn"] == true && isset($_SESSION["name"]) && $_SESSION["access"] == "owner") {
         $name = $_SESSION["name"];
     } else {
         die("ACCESS DENIED");

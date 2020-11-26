@@ -1,183 +1,87 @@
---
--- PostgreSQL database dump
---
+BEGIN TRANSACTION;
 
--- Dumped from database version 12.5 (Ubuntu 12.5-0ubuntu0.20.04.1)
--- Dumped by pg_dump version 12.5 (Ubuntu 12.5-0ubuntu0.20.04.1)
+create table accesses (
+    access_type varchar(100) PRIMARY KEY
+);
 
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
+create table employee (
+    employee_id SERIAL PRIMARY KEY,
+    employee_password varchar(100) NOT NULL,
+    first_name varchar(100) NOT NULL,
+    last_name varchar(100),
+    contact_no varchar(100),
+    access_type varchar(100) NOT NULL,
+    foreign key(access_type) references accesses(access_type)
+);
 
-SET default_tablespace = '';
+create table customer (
+    contact_no varchar(20) PRIMARY KEY,
+    first_name varchar(100) NOT NULL,
+    last_name varchar(100)
+);
 
-SET default_table_access_method = heap;
+create table category (
+    category_id SERIAL PRIMARY KEY,
+    category_name varchar(100) NOT NULL
+);
 
---
--- Name: accesses; Type: TABLE; Schema: public; Owner: rupesh
---
+create table dealers (
+    dealer_id SERIAL PRIMARY KEY,
+    dealer_name varchar(100) NOT NULL,
+    dealer_contact_no varchar(20)
+);
 
-CREATE TABLE public.accesses (
-    access_type character varying(100) NOT NULL
+create table taxes (
+    tax_name varchar PRIMARY KEY,
+    tax_percent float NOT NULL
+);
+
+create table bill_book (
+    bill_id SERIAL PRIMARY KEY,
+    contact_no varchar,
+    net_discount float DEFAULT 0,
+    total_payment money NOT NULL,
+    total_tax float NOT NULL DEFAULT 0,
+    datetime timestamp NOT NULL,
+    foreign key(contact_no) references customer(contact_no)
+);
+
+create table purchase_book (
+    purchase_id SERIAL PRIMARY KEY,
+    dealer_id INTEGER,
+    net_payment money NOT NULL,
+    datetime timestamp NOT NULL,
+    foreign key(dealer_id) references dealers(dealer_id)
 );
 
 
-ALTER TABLE public.accesses OWNER TO rupesh;
-
---
--- Name: category; Type: TABLE; Schema: public; Owner: rupesh
---
-
-CREATE TABLE public.category (
-    category_id character varying(100) NOT NULL,
-    category_name character varying(100) NOT NULL
+create table inventory (
+    item_id SERIAL PRIMARY KEY,
+    item_name varchar NOT NULL,
+    category_id INTEGER,
+    item_price money NOT NULL,
+    item_quantity integer NOT NULL,
+    item_discount float DEFAULT 0,
+    item_tax float DEFAULT 0,
+    foreign key(category_id) references category(category_id)
 );
 
-
-ALTER TABLE public.category OWNER TO rupesh;
-
---
--- Name: customer; Type: TABLE; Schema: public; Owner: rupesh
---
-
-CREATE TABLE public.customer (
-    contact_no character varying(20) NOT NULL,
-    first_name character varying(100),
-    last_name character varying(100)
+create table purchased_items (
+    purchase_id INTEGER,
+    item_id  INTEGER,
+    item_name varchar NOT NULL,
+    item_base_price money NOT NULL,
+    item_quantity integer,
+    foreign key(item_id) references inventory(item_id),
+    foreign key(purchase_id) references purchase_book(purchase_id)
 );
 
+insert into accesses values('owner');
+insert into accesses values('cashier');
+insert into accesses values('manager');
 
-ALTER TABLE public.customer OWNER TO rupesh;
+insert into employee(employee_password, first_name, access_type)
+values('123', 'Davie', 'owner');
 
---
--- Name: dealers; Type: TABLE; Schema: public; Owner: rupesh
---
-
-CREATE TABLE public.dealers (
-    dealer_id character varying(100) NOT NULL,
-    dealer_name character varying(100) NOT NULL,
-    dealer_contact_no character varying(20)
-);
-
-
-ALTER TABLE public.dealers OWNER TO rupesh;
-
---
--- Name: employee; Type: TABLE; Schema: public; Owner: rupesh
---
-
-CREATE TABLE public.employee (
-    employee_id character varying(100) NOT NULL,
-    employee_password character varying(100),
-    first_name character varying(100),
-    last_name character varying(100),
-    contact_no character varying(100),
-    access_type character varying(100)
-);
-
-
-ALTER TABLE public.employee OWNER TO rupesh;
-
---
--- Data for Name: accesses; Type: TABLE DATA; Schema: public; Owner: rupesh
---
-
-COPY public.accesses (access_type) FROM stdin;
-owner
-casheir
-manager
-\.
-
-
---
--- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: rupesh
---
-
-COPY public.category (category_id, category_name) FROM stdin;
-\.
-
-
---
--- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: rupesh
---
-
-COPY public.customer (contact_no, first_name, last_name) FROM stdin;
-\.
-
-
---
--- Data for Name: dealers; Type: TABLE DATA; Schema: public; Owner: rupesh
---
-
-COPY public.dealers (dealer_id, dealer_name, dealer_contact_no) FROM stdin;
-\.
-
-
---
--- Data for Name: employee; Type: TABLE DATA; Schema: public; Owner: rupesh
---
-
-COPY public.employee (employee_id, employee_password, first_name, last_name, contact_no, access_type) FROM stdin;
-1	123	test1	\N	\N	owner
-\.
-
-
---
--- Name: accesses accesses_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
---
-
-ALTER TABLE ONLY public.accesses
-    ADD CONSTRAINT accesses_pkey PRIMARY KEY (access_type);
-
-
---
--- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
---
-
-ALTER TABLE ONLY public.category
-    ADD CONSTRAINT category_pkey PRIMARY KEY (category_id);
-
-
---
--- Name: customer customer_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
---
-
-ALTER TABLE ONLY public.customer
-    ADD CONSTRAINT customer_pkey PRIMARY KEY (contact_no);
-
-
---
--- Name: dealers dealers_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
---
-
-ALTER TABLE ONLY public.dealers
-    ADD CONSTRAINT dealers_pkey PRIMARY KEY (dealer_id);
-
-
---
--- Name: employee employee_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
---
-
-ALTER TABLE ONLY public.employee
-    ADD CONSTRAINT employee_pkey PRIMARY KEY (employee_id);
-
-
---
--- Name: employee employee_access_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rupesh
---
-
-ALTER TABLE ONLY public.employee
-    ADD CONSTRAINT employee_access_type_fkey FOREIGN KEY (access_type) REFERENCES public.accesses(access_type);
-
-
---
--- PostgreSQL database dump complete
---
+END TRANSACTION;
 

@@ -8,7 +8,7 @@
     session_start();
 
     if(isset($_POST["submit"])) {
-        $sql_qry = "select * from employee where employee_id='$e_username' and employee_password='$e_password' and access_type='$e_access_type'";
+        $sql_qry = "select * from employee where employee_id=$e_username and employee_password='$e_password' and access_type='$e_access_type'";
         $res = $PG_CLIENT->query_select($sql_qry);
         if(count($res) == 1) {
             // set session variables
