@@ -5,16 +5,19 @@
 6 ) add category [done]
 9 ) check purchase book [done]
 11 ) delete employee [done]
+5 ) adjust taxes [done]
+
+
+remaining :
+
+7 ) show bill info
+     : bill_id / time window / customer / all )
 
 4 ) purchase from dealers
     : select dealer
     : add items
     : update inventory, purchase_book, purchased_items
 
-5 ) adjust taxes
-
-7 ) show bill info
-    : bill_id / time window / customer / all
 
 8 ) show / edit dealers
 
