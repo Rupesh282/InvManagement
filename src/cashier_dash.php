@@ -19,6 +19,7 @@
 "
         <h1>HI , {$name} !</h1> 
         <a href='show_stock.php'><button>Show stock</button></a>
+        <a href='change_password.php'><button>Change password</button></a>
         <div>
             <button onclick='logout();'>Log Out</button>
         </div>        
