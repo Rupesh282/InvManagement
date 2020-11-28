@@ -19,6 +19,7 @@
             $_SESSION["access"] = $e_access_type;
 
             $location = $e_access_type."_dash.php";
+            echo $location;
             header("Location: ".$location);
         } else {
             //user is not valid, redirect him to login page

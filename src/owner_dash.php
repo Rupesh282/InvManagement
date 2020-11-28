@@ -23,6 +23,7 @@
         <a href='add_employee.php'><button>Add employee</button></a>
         <a href='add_dealer.php'><button>Add Dealer</button></a>
         <a href='change_password.php'><button>Change Password</button></a>
+        <a href='show_purchase_book.php'><button>Show purchase book</button></a>
         <div>
             <button onclick='logout();'>Log Out</button>
         </div>        

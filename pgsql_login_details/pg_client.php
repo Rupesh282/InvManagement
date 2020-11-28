@@ -47,16 +47,12 @@ class pg_client {
     }
 
     function build_table($array) {
-        // start table
-        $html = '<table>';
-        // header row
+        $html = '<table border="1px solid black" style="border-collapse: collapse;">';
         $html .= '<tr>';
         foreach ($array[0] as $key => $value) {
             $html .= '<th>' . htmlspecialchars($key) . '</th>';
         }
         $html .= '</tr>';
-
-        // data rows
         foreach ($array as $key => $value) {
             $html .= '<tr>';
             foreach ($value as $key2 => $value2) {
@@ -64,6 +60,7 @@ class pg_client {
             }
             $html .= '</tr>';
         }
+        return $html;
     }
 }
 

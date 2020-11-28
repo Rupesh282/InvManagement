@@ -1,6 +1,6 @@
 <script type="text/javascript">
     function go_to_owner_dash() {
-        window.location.replace("index.php");
+        window.location.replace("../index.php");
     }
 </script>
 

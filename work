@@ -1,15 +1,21 @@
-1 ) add employee
-2 ) add dealer
-3 ) show inventory
+1 ) add employee [done]
+2 ) add dealer  [done]
+3 ) show inventory  [done]
+11 ) reset pass  [done]
+6 ) add category [done]
+
 4 ) purchase from dealers
     : select dealer
     : add items
     : update inventory, purchase_book, purchased_items
+
 5 ) adjust taxes
-6 ) add category
+
 7 ) show bill info
     : bill_id / time window / customer / all
+
 8 ) show / edit dealers
+
 9 ) check purchase book
+
 10 ) make bill
-11 ) reset pass
