@@ -20,10 +20,11 @@
         <h1>HI , {$name} !</h1> 
         <a href='show_stock.php'><button>Show stock</button></a>
         <a href='add_category.php'><button>Add category</button></a>
-        <a href='add_dealer.php'><button>Add dealer</button></a>
+        <a href='add_employee.php'><button>Add employee</button></a>
+        <a href='add_dealer.php'><button>Add Dealer</button></a>
         <div>
             <button onclick='logout();'>Log Out</button>
         </div>        
-   "
+"
 ?>
 
