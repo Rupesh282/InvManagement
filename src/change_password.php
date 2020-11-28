@@ -1,9 +1,4 @@
-<script type="text/javascript">
-    function index() {
-        setTimeout(function () {window.location.replace("../index.php");},5000);
-    }
-</script>
-
+<script type="text/javascript" src="../function.js"></script>
 <?php
 
     session_start();
@@ -20,10 +15,8 @@
                     //echo $sql_qry;
                     $test = $PG_CLIENT->query_update($sql_qry);
                     if($test == 1){
-                        echo "<script>index()</script>";
+                        echo "<script>redirect_home(2)</script>";
                         die("password update succesfully!");
-                    }elseif ($password == "") {
-                        #this is just if some one refreshes page after disconnected noo need to add any thing
                     } else {
                         echo "Error ! could not change password";
                     }
@@ -42,8 +35,9 @@
 
 <div align="center">
     <form action="change_password.php" method="POST">
-        <input name="password" type="password" placeholder="enter new password"><br><br>
-        <input name="recheck" type="password" placeholder="re-enter password"><br><br>
+        <input name="password" type="password" placeholder="enter new password" required><br><br>
+        <input name="recheck" type="password" placeholder="re-enter password" required><br><br>
         <input type="submit" name="submit">
     </form>
+    <button onclick="redirect_home(0)">Back</button>
 </div>

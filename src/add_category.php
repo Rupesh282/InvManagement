@@ -1,3 +1,4 @@
+<script type="text/javascript" src="../function.js"></script>
 <?php
 
 $PG_CLIENT = include "../pgsql_login_details/pg_client.php";
@@ -19,6 +20,7 @@ if(isset($_SESSION['loggedIn']) and $_SESSION['loggedIn'] and $_SESSION['access'
     Category name: <input type='text' name='category_name'> <br><br>
     <input type='submit'>
     </form>
+    <button onclick='redirect_home(0)'>Back</button>
     ";
 }
 else if(!($_SESSION['loggedIn']))
