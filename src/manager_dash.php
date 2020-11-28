@@ -8,7 +8,7 @@
 
     session_start();
 
-    if($_SESSION["loggedIn"] == true && isset($_SESSION["name"]) && $_SESSION["access"] == "owner") {
+    if($_SESSION["loggedIn"] == true && isset($_SESSION["name"]) && $_SESSION["access"] == "manager") {
         $name = $_SESSION["name"];
     } else {
         die("ACCESS DENIED");
@@ -20,7 +20,6 @@
         <h1>HI , {$name} !</h1> 
         <a href='show_stock.php'><button>Show stock</button></a>
         <a href='add_category.php'><button>Add category</button></a>
-        <a href='add_dealer.php'><button>Add dealer</button></a>
         <div>
             <button onclick='logout();'>Log Out</button>
         </div>        
