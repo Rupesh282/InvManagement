@@ -3,6 +3,8 @@
 3 ) show inventory  [done]
 11 ) reset pass  [done]
 6 ) add category [done]
+9 ) check purchase book [done]
+11 ) delete employee [done]
 
 4 ) purchase from dealers
     : select dealer
@@ -16,6 +18,5 @@
 
 8 ) show / edit dealers
 
-9 ) check purchase book
-
 10 ) make bill
+

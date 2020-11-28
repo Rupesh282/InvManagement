@@ -24,6 +24,7 @@
         <a href='add_dealer.php'><button>Add Dealer</button></a>
         <a href='change_password.php'><button>Change Password</button></a>
         <a href='show_purchase_book.php'><button>Show purchase book</button></a>
+        <a href='delete_employee.php'><button>remove employee</button></a>
         <div>
             <button onclick='logout();'>Log Out</button>
         </div>        
