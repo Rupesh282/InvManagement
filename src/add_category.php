@@ -1,8 +1,5 @@
-<script type="text/javascript">
-    function index() {
-        setTimeout(function () {window.location.replace("../index.php");}, 5000);
-    }
-</script>
+<script type="text/javascript" src="../function.js"></script>
+
 <?php
 
 $PG_CLIENT = include "../pgsql_login_details/pg_client.php";
@@ -19,7 +16,7 @@ if(isset($_GET['category_name']))
     } else {
         $sql_qry = "insert into category(category_name) values('$category_name')";
         $PG_CLIENT->query_update($sql_qry);
-        echo '<script>index();</script>';
+        echo '<script>redirect_home(2);</script>';
         die("<h1>Category added successfully</h1>");
     }
 
@@ -32,6 +29,7 @@ if(isset($_SESSION['loggedIn']) and $_SESSION['loggedIn'] and $_SESSION['access'
     Category name: <input type='text' name='category_name'> <br><br>
     <input type='submit'>
     </form>
+    <button onclick='redirect_home(0)'>Back</button>
     ";
 }
 else if(!($_SESSION['loggedIn']))
