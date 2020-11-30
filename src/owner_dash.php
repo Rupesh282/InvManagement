@@ -27,6 +27,7 @@
         <a href='delete_employee.php'><button>Remove employee</button></a>
         <a href='manage_tax.php'><button>Manage tax</button></a>
         <a href='manage_dealers.php'><button>Manage dealers</button></a>
+        <a href='dealer_purchase.php'><button>Purchase from dealers</button></a>
         <div>
             <button onclick='logout();'>Log Out</button>
         </div>        
