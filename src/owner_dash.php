@@ -29,6 +29,7 @@
         <a href='manage_dealers.php'><button>Manage dealers</button></a>
         <a href='dealer_purchase.php'><button>Purchase from dealers</button></a>
         <a href='show_bills.php'><button>Show Bills</button></a>
+        <a href='make_bill.php'><button>Make bill</button></a>
         <div>
             <button onclick='logout();'>Log Out</button>
         </div>        
