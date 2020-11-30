@@ -11,17 +11,19 @@
 remaining :
 
 7 ) show bill info
-     : bill_id / time window / customer / all )
+     : bill_id / time window / customer / all ) - Rupesh
 
 4 ) purchase from dealers
     : select dealer
     : add items
     : update inventory, purchase_book, purchased_items
 
+    -Amogh (discuss)
 
-8 ) show / edit dealers
 
-10 ) make bill
+8 ) show / edit dealers - Amogh
 
-12 ) Add taxes
+10 ) make bill -Paritosh
+
+12 ) Add taxes -Paritosh
 
