@@ -6,12 +6,13 @@
 9 ) check purchase book [done]
 11 ) delete employee [done]
 5 ) adjust taxes [done]
-
+12 ) Add taxes [done]
+8 ) show / edit dealers [done]
+7 ) show bill info  [done]
+     : bill_id / time window / customer / all ) 
 
 remaining :
 
-7 ) show bill info
-     : bill_id / time window / customer / all ) - Rupesh
 
 4 ) purchase from dealers
     : select dealer
@@ -20,10 +21,6 @@ remaining :
 
     -Amogh (discuss)
 
+10 ) make bill -Paritosh [paritaly done]
 
-8 ) show / edit dealers - Amogh
-
-10 ) make bill -Paritosh
-
-12 ) Add taxes -Paritosh
 
