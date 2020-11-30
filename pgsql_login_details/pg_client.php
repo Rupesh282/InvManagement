@@ -49,16 +49,18 @@ class pg_client {
     function build_table($array) {
         $html = '<table border="1px solid black" style="border-collapse: collapse;">';
         $html .= '<tr>';
-        foreach ($array[0] as $key => $value) {
-            $html .= '<th>' . htmlspecialchars($key) . '</th>';
-        }
-        $html .= '</tr>';
-        foreach ($array as $key => $value) {
-            $html .= '<tr>';
-            foreach ($value as $key2 => $value2) {
-                $html .= '<td>' . htmlspecialchars($value2) . '</td>';
+        if(count($array) != 0) {
+            foreach ($array[0] as $key => $value) {
+                $html .= '<th>' . htmlspecialchars($key) . '</th>';
             }
             $html .= '</tr>';
+            foreach ($array as $key => $value) {
+                $html .= '<tr>';
+                foreach ($value as $key2 => $value2) {
+                    $html .= '<td>' . htmlspecialchars($value2) . '</td>';
+                }
+                $html .= '</tr>';
+            }
         }
         return $html;
     }
