@@ -13,6 +13,19 @@
                 echo "Updated the tax $taxname to $taxrate";
             }
         }
+        if(isset($_POST['add_new_tax'])){
+            $newtaxname = $_POST['new_tax_name'];
+            $newtaxrate = $_POST['new_tax_rate'];
+            $sql_qry = "insert into taxes (tax_name,tax_percent) values ('$newtaxname','$newtaxrate')";
+            $res = $PG_CLIENT->query_update($sql_qry);
+            if($res == 1){
+                echo "Added the tax $newtaxname";
+            } else if($res == 0){
+                echo "Tax with the name $newtaxname already exists";
+            } else {
+                echo "error while adding tax";
+            }
+        }
         $sql_qry = "select * from taxes";
         $res = $PG_CLIENT->query_select($sql_qry);
         echo "<br>Current taxes";
@@ -25,7 +38,7 @@
 "
     <div align='center'>
         Press submit to change the values<br><br>
-        <form action='change_tax.php' method='POST'> 
+        <form action='manage_tax.php' method='POST'> 
 "
 ?>
 
@@ -43,7 +56,20 @@
             <input placeholder='new tax rate' name='tax_rate' required><br><br>
             <input type='submit' name='change_tax'>
         </form><br><br>
-        <button onclick='redirect_home(0)'> Back </button>
+        
     </div>
+"
+?>
+<?= "
+    <br><br><br>
+    <div align='center'>
+        Enter new tax : <br><br>
+        <form action='manage_tax.php' method='POST'>
+        <input placeholder='Enter tax name' name='new_tax_name' required><br><br>
+        <input placeholder='Enter tax rate' name='new_tax_rate' required><br><br>
+        <input type='submit' name='add_new_tax'>
+        </form><br><br>
+     <button onclick='redirect_home(0)'> Back </button>
+     <div>
 "
 ?>

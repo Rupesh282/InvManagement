@@ -5,6 +5,15 @@ function die_print($message, $file_name) {
     die("inside file : $file_name <br><br>  [ $message ] <br><br>");
 }
 
+function myErrorHandler($errno, $errstr, $errfile, $errline) {
+//    echo "O a, here";
+//    print "<b>Custom error:</b> [$errno] $errstr<br>";
+//    print " Error on line $errline in $errfile<br>";
+}
+
+// Set user-defined error handler function
+set_error_handler("myErrorHandler");
+
 class pg_client {
     private $pg_username;
     private $pg_password;
@@ -40,8 +49,9 @@ class pg_client {
 
     function query_update($sql_qry) {
         $result = pg_query($this->pg_connection, $sql_qry);
-        if($result == false) {
-            die_print(pg_last_error(), "pg_client.php");
+        if ($result == false) {
+            //die_print(pg_last_error(), "pg_client.php");
+            return 0;
         }
         return pg_affected_rows($result);
     }
