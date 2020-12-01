@@ -76,6 +76,17 @@ create table purchased_items (
     foreign key(purchase_id) references purchase_book(purchase_id)
 );
 
+create table sold_items (
+    bill_id INTEGER,
+    item_id  INTEGER,
+    item_quantity varchar NOT NULL,
+    item_price money NOT NULL,
+    item_discount float,
+    item_tax float,
+    foreign key(item_id) references inventory(item_id),
+    foreign key(bill_id) references bill_book(bill_id)
+);
+
 insert into accesses values('owner');
 insert into accesses values('cashier');
 insert into accesses values('manager');
