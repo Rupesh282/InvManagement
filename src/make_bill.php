@@ -69,6 +69,7 @@
             t.rows[item_count].insertCell(2).innerHTML = select_quantity + '</input>';
             item_count++;
         }
+        document.getElementById('input').reset();
     }
 
     function putTotalItems()
@@ -212,11 +213,12 @@ echo"
         <h2> MAKE BILL </h2><br><br>
         <input type='text' name='contact_no' form='bill_form' placeholder='Enter customer contact no.' required>
         <h4>Enter the item name and select from suggestion list</h4>
-        
+        <form id='input'>
             <input name='item_id' id='item_id' class='item_id' readonly></input>
             <input name='item' id='item' class='item' placeholder='Enter item name' required></input>
             <input name='quantity' id='quantity' placeholder='Enter quantity'required></input>
             <br><br>
+        </form>
             <button name='add_item' class='btn btn-primary' onclick=window.add_item()>Add</button>
             <input type='submit'  class='btn btn-primary' name='make_bill' form='bill_form'>
             <form action='make_bill.php' id='bill_form' onsubmit='putTotalItems()' method='POST'>
