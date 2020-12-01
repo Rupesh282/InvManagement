@@ -62,7 +62,7 @@
              details.push(temp);
          }
         var availableTags = details;
-         var ele = "item" + num;
+         var ele = ".item" + num;
          console.log(ele);
         $( "." + ele ).autocomplete({
             source: availableTags,
