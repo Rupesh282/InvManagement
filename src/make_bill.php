@@ -132,10 +132,7 @@ if(isset($_SESSION["loggedIn"]) and $_SESSION["loggedIn"] == true and ($_SESSION
                     print($item_price[$i].'<br>');
                 }
 
-//                    print($item_price);
-//                    print(gettype($item_price));
-//                    echo "<br><br>";
-                    die("here");
+
                 $final_price=(intval($item_price) * intval($item_quan) * (1-floatval($item_discount)) * (1+floatval($item_tax)) );
 //                    print(gettype($item_price));
                 $valid_items[] = (array('ID' => $item_id, 'Name' => $item_name, 'Quantity' => $item_quan, 'Price' => $item_price, 'Discount' => $item_discount, 'Tax' => $item_tax, 'Net price'=>$final_price));
@@ -158,9 +155,8 @@ $total_discount,$total_payment,$total_tax,'$current_dt')";
         $qry="select bill_id from bill_book order by bill_id DESC limit 1";
         $res=$PG_CLIENT->query_select($qry);
         $bill_id=$res[0]['bill_id'];
-        echo "<h3> Bill: </h3>";
+        echo "<center><h3> Transaction details : </h3>";
         print($PG_CLIENT->build_table($valid_items));
-        echo "<h3>Errors:</h3> $error";
 
         foreach($valid_items as $arr)
         {
@@ -180,15 +176,19 @@ $total_discount,$total_payment,$total_tax,'$current_dt')";
 
         }
 
-        echo "<h3> Total Bill Amount: $total_payment </h3>";
-        echo "<h3> Total Discount: $total_discount</h3> ";
-        echo "<h3> Tax: $total_tax</h3>";
+        echo "<h5> Total Bill Amount: $total_payment </h5>";
+        echo "<h5> Total Discount: $total_discount</h5> ";
+        echo "<h5> Tax: $total_tax</h5>";
         $gross_payment=$total_payment-$total_discount+$total_tax;
-        echo "<h3> Gross Total: $gross_payment";
+        echo "<h5> Gross Total: $gross_payment</h5>";
 
         echo '         
             <script type="text/javascript" src="../function.js"></script>
 <button onclick="redirect_home(0)" class="btn btn-dark">Back</button> ';
+        if($error!="") {
+            echo "<br><h6>Errors:</h6> $error";
+        }
+        echo "<br><br><h5>Copy of bill</h5></center>";
         die();
 
 

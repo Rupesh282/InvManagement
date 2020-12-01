@@ -72,7 +72,7 @@ class pg_client {
                 $html .= '</tr>';
             }
         }
-
+        $html.='</html>';
         return $html;
     }
 }
