@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: accesses; Type: TABLE; Schema: public; Owner: postgres
+-- Name: accesses; Type: TABLE; Schema: public; Owner: rupesh
 --
 
 CREATE TABLE public.accesses (
@@ -29,10 +29,10 @@ CREATE TABLE public.accesses (
 );
 
 
-ALTER TABLE public.accesses OWNER to postgres;
+ALTER TABLE public.accesses OWNER to rupesh;
 
 --
--- Name: bill_book; Type: TABLE; Schema: public; Owner: postgres
+-- Name: bill_book; Type: TABLE; Schema: public; Owner: rupesh
 --
 
 CREATE TABLE public.bill_book (
@@ -45,10 +45,10 @@ CREATE TABLE public.bill_book (
 );
 
 
-ALTER TABLE public.bill_book OWNER to postgres;
+ALTER TABLE public.bill_book OWNER to rupesh;
 
 --
--- Name: bill_book_bill_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: bill_book_bill_id_seq; Type: SEQUENCE; Schema: public; Owner: rupesh
 --
 
 CREATE SEQUENCE public.bill_book_bill_id_seq
@@ -60,17 +60,17 @@ CREATE SEQUENCE public.bill_book_bill_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.bill_book_bill_id_seq OWNER to postgres;
+ALTER TABLE public.bill_book_bill_id_seq OWNER to rupesh;
 
 --
--- Name: bill_book_bill_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: bill_book_bill_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rupesh
 --
 
 ALTER SEQUENCE public.bill_book_bill_id_seq OWNED BY public.bill_book.bill_id;
 
 
 --
--- Name: category; Type: TABLE; Schema: public; Owner: postgres
+-- Name: category; Type: TABLE; Schema: public; Owner: rupesh
 --
 
 CREATE TABLE public.category (
@@ -79,10 +79,10 @@ CREATE TABLE public.category (
 );
 
 
-ALTER TABLE public.category OWNER to postgres;
+ALTER TABLE public.category OWNER to rupesh;
 
 --
--- Name: category_category_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: category_category_id_seq; Type: SEQUENCE; Schema: public; Owner: rupesh
 --
 
 CREATE SEQUENCE public.category_category_id_seq
@@ -94,17 +94,17 @@ CREATE SEQUENCE public.category_category_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.category_category_id_seq OWNER to postgres;
+ALTER TABLE public.category_category_id_seq OWNER to rupesh;
 
 --
--- Name: category_category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: category_category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rupesh
 --
 
 ALTER SEQUENCE public.category_category_id_seq OWNED BY public.category.category_id;
 
 
 --
--- Name: customer; Type: TABLE; Schema: public; Owner: postgres
+-- Name: customer; Type: TABLE; Schema: public; Owner: rupesh
 --
 
 CREATE TABLE public.customer (
@@ -114,10 +114,10 @@ CREATE TABLE public.customer (
 );
 
 
-ALTER TABLE public.customer OWNER to postgres;
+ALTER TABLE public.customer OWNER to rupesh;
 
 --
--- Name: dealers; Type: TABLE; Schema: public; Owner: postgres
+-- Name: dealers; Type: TABLE; Schema: public; Owner: rupesh
 --
 
 CREATE TABLE public.dealers (
@@ -127,10 +127,10 @@ CREATE TABLE public.dealers (
 );
 
 
-ALTER TABLE public.dealers OWNER to postgres;
+ALTER TABLE public.dealers OWNER to rupesh;
 
 --
--- Name: dealers_dealer_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: dealers_dealer_id_seq; Type: SEQUENCE; Schema: public; Owner: rupesh
 --
 
 CREATE SEQUENCE public.dealers_dealer_id_seq
@@ -142,17 +142,17 @@ CREATE SEQUENCE public.dealers_dealer_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.dealers_dealer_id_seq OWNER to postgres;
+ALTER TABLE public.dealers_dealer_id_seq OWNER to rupesh;
 
 --
--- Name: dealers_dealer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: dealers_dealer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rupesh
 --
 
 ALTER SEQUENCE public.dealers_dealer_id_seq OWNED BY public.dealers.dealer_id;
 
 
 --
--- Name: employee; Type: TABLE; Schema: public; Owner: postgres
+-- Name: employee; Type: TABLE; Schema: public; Owner: rupesh
 --
 
 CREATE TABLE public.employee (
@@ -165,10 +165,10 @@ CREATE TABLE public.employee (
 );
 
 
-ALTER TABLE public.employee OWNER to postgres;
+ALTER TABLE public.employee OWNER to rupesh;
 
 --
--- Name: employee_employee_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: employee_employee_id_seq; Type: SEQUENCE; Schema: public; Owner: rupesh
 --
 
 CREATE SEQUENCE public.employee_employee_id_seq
@@ -180,17 +180,17 @@ CREATE SEQUENCE public.employee_employee_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.employee_employee_id_seq OWNER to postgres;
+ALTER TABLE public.employee_employee_id_seq OWNER to rupesh;
 
 --
--- Name: employee_employee_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: employee_employee_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rupesh
 --
 
 ALTER SEQUENCE public.employee_employee_id_seq OWNED BY public.employee.employee_id;
 
 
 --
--- Name: inventory; Type: TABLE; Schema: public; Owner: postgres
+-- Name: inventory; Type: TABLE; Schema: public; Owner: rupesh
 --
 
 CREATE TABLE public.inventory (
@@ -204,10 +204,10 @@ CREATE TABLE public.inventory (
 );
 
 
-ALTER TABLE public.inventory OWNER to postgres;
+ALTER TABLE public.inventory OWNER to rupesh;
 
 --
--- Name: inventory_item_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: inventory_item_id_seq; Type: SEQUENCE; Schema: public; Owner: rupesh
 --
 
 CREATE SEQUENCE public.inventory_item_id_seq
@@ -219,17 +219,17 @@ CREATE SEQUENCE public.inventory_item_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.inventory_item_id_seq OWNER to postgres;
+ALTER TABLE public.inventory_item_id_seq OWNER to rupesh;
 
 --
--- Name: inventory_item_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: inventory_item_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rupesh
 --
 
 ALTER SEQUENCE public.inventory_item_id_seq OWNED BY public.inventory.item_id;
 
 
 --
--- Name: purchase_book; Type: TABLE; Schema: public; Owner: postgres
+-- Name: purchase_book; Type: TABLE; Schema: public; Owner: rupesh
 --
 
 CREATE TABLE public.purchase_book (
@@ -240,10 +240,10 @@ CREATE TABLE public.purchase_book (
 );
 
 
-ALTER TABLE public.purchase_book OWNER to postgres;
+ALTER TABLE public.purchase_book OWNER to rupesh;
 
 --
--- Name: purchase_book_purchase_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: purchase_book_purchase_id_seq; Type: SEQUENCE; Schema: public; Owner: rupesh
 --
 
 CREATE SEQUENCE public.purchase_book_purchase_id_seq
@@ -255,17 +255,17 @@ CREATE SEQUENCE public.purchase_book_purchase_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.purchase_book_purchase_id_seq OWNER to postgres;
+ALTER TABLE public.purchase_book_purchase_id_seq OWNER to rupesh;
 
 --
--- Name: purchase_book_purchase_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: purchase_book_purchase_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rupesh
 --
 
 ALTER SEQUENCE public.purchase_book_purchase_id_seq OWNED BY public.purchase_book.purchase_id;
 
 
 --
--- Name: purchased_items; Type: TABLE; Schema: public; Owner: postgres
+-- Name: purchased_items; Type: TABLE; Schema: public; Owner: rupesh
 --
 
 CREATE TABLE public.purchased_items (
@@ -277,10 +277,10 @@ CREATE TABLE public.purchased_items (
 );
 
 
-ALTER TABLE public.purchased_items OWNER to postgres;
+ALTER TABLE public.purchased_items OWNER to rupesh;
 
 --
--- Name: sold_items; Type: TABLE; Schema: public; Owner: postgres
+-- Name: sold_items; Type: TABLE; Schema: public; Owner: rupesh
 --
 
 CREATE TABLE public.sold_items (
@@ -293,10 +293,10 @@ CREATE TABLE public.sold_items (
 );
 
 
-ALTER TABLE public.sold_items OWNER to postgres;
+ALTER TABLE public.sold_items OWNER to rupesh;
 
 --
--- Name: taxes; Type: TABLE; Schema: public; Owner: postgres
+-- Name: taxes; Type: TABLE; Schema: public; Owner: rupesh
 --
 
 CREATE TABLE public.taxes (
@@ -305,52 +305,52 @@ CREATE TABLE public.taxes (
 );
 
 
-ALTER TABLE public.taxes OWNER to postgres;
+ALTER TABLE public.taxes OWNER to rupesh;
 
 --
--- Name: bill_book bill_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: bill_book bill_id; Type: DEFAULT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.bill_book ALTER COLUMN bill_id SET DEFAULT nextval('public.bill_book_bill_id_seq'::regclass);
 
 
 --
--- Name: category category_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: category category_id; Type: DEFAULT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.category ALTER COLUMN category_id SET DEFAULT nextval('public.category_category_id_seq'::regclass);
 
 
 --
--- Name: dealers dealer_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: dealers dealer_id; Type: DEFAULT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.dealers ALTER COLUMN dealer_id SET DEFAULT nextval('public.dealers_dealer_id_seq'::regclass);
 
 
 --
--- Name: employee employee_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: employee employee_id; Type: DEFAULT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.employee ALTER COLUMN employee_id SET DEFAULT nextval('public.employee_employee_id_seq'::regclass);
 
 
 --
--- Name: inventory item_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: inventory item_id; Type: DEFAULT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.inventory ALTER COLUMN item_id SET DEFAULT nextval('public.inventory_item_id_seq'::regclass);
 
 
 --
--- Name: purchase_book purchase_id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: purchase_book purchase_id; Type: DEFAULT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.purchase_book ALTER COLUMN purchase_id SET DEFAULT nextval('public.purchase_book_purchase_id_seq'::regclass);
 
 
 --
--- Data for Name: accesses; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: accesses; Type: TABLE DATA; Schema: public; Owner: rupesh
 --
 
 COPY public.accesses (access_type) FROM stdin;
@@ -361,7 +361,7 @@ cashier
 
 
 --
--- Data for Name: bill_book; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: bill_book; Type: TABLE DATA; Schema: public; Owner: rupesh
 --
 
 COPY public.bill_book (bill_id, contact_no, net_discount, total_payment, total_tax, datetime) FROM stdin;
@@ -372,7 +372,7 @@ COPY public.bill_book (bill_id, contact_no, net_discount, total_payment, total_t
 
 
 --
--- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: category; Type: TABLE DATA; Schema: public; Owner: rupesh
 --
 
 COPY public.category (category_id, category_name) FROM stdin;
@@ -386,7 +386,7 @@ COPY public.category (category_id, category_name) FROM stdin;
 
 
 --
--- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: customer; Type: TABLE DATA; Schema: public; Owner: rupesh
 --
 
 COPY public.customer (contact_no, first_name, last_name) FROM stdin;
@@ -397,7 +397,7 @@ COPY public.customer (contact_no, first_name, last_name) FROM stdin;
 
 
 --
--- Data for Name: dealers; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: dealers; Type: TABLE DATA; Schema: public; Owner: rupesh
 --
 
 COPY public.dealers (dealer_id, dealer_name, dealer_contact_no) FROM stdin;
@@ -408,7 +408,7 @@ COPY public.dealers (dealer_id, dealer_name, dealer_contact_no) FROM stdin;
 
 
 --
--- Data for Name: employee; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: employee; Type: TABLE DATA; Schema: public; Owner: rupesh
 --
 
 COPY public.employee (employee_id, employee_password, first_name, last_name, contact_no, access_type) FROM stdin;
@@ -420,7 +420,7 @@ COPY public.employee (employee_id, employee_password, first_name, last_name, con
 
 
 --
--- Data for Name: inventory; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: inventory; Type: TABLE DATA; Schema: public; Owner: rupesh
 --
 
 COPY public.inventory (item_id, item_name, category_id, item_price, item_quantity, item_discount, item_tax) FROM stdin;
@@ -434,7 +434,7 @@ COPY public.inventory (item_id, item_name, category_id, item_price, item_quantit
 
 
 --
--- Data for Name: purchase_book; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: purchase_book; Type: TABLE DATA; Schema: public; Owner: rupesh
 --
 
 COPY public.purchase_book (purchase_id, dealer_id, net_payment, datetime) FROM stdin;
@@ -442,7 +442,7 @@ COPY public.purchase_book (purchase_id, dealer_id, net_payment, datetime) FROM s
 
 
 --
--- Data for Name: purchased_items; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: purchased_items; Type: TABLE DATA; Schema: public; Owner: rupesh
 --
 
 COPY public.purchased_items (purchase_id, item_id, item_name, item_base_price, item_quantity) FROM stdin;
@@ -450,7 +450,7 @@ COPY public.purchased_items (purchase_id, item_id, item_name, item_base_price, i
 
 
 --
--- Data for Name: sold_items; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: sold_items; Type: TABLE DATA; Schema: public; Owner: rupesh
 --
 
 COPY public.sold_items (bill_id, item_id, item_quantity, item_price, item_discount, item_tax) FROM stdin;
@@ -458,7 +458,7 @@ COPY public.sold_items (bill_id, item_id, item_quantity, item_price, item_discou
 
 
 --
--- Data for Name: taxes; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: taxes; Type: TABLE DATA; Schema: public; Owner: rupesh
 --
 
 COPY public.taxes (tax_name, tax_percent) FROM stdin;
@@ -468,49 +468,49 @@ CGST	0.2
 
 
 --
--- Name: bill_book_bill_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: bill_book_bill_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rupesh
 --
 
 SELECT pg_catalog.setval('public.bill_book_bill_id_seq', 5, true);
 
 
 --
--- Name: category_category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: category_category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rupesh
 --
 
 SELECT pg_catalog.setval('public.category_category_id_seq', 10, true);
 
 
 --
--- Name: dealers_dealer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: dealers_dealer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rupesh
 --
 
 SELECT pg_catalog.setval('public.dealers_dealer_id_seq', 7, true);
 
 
 --
--- Name: employee_employee_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: employee_employee_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rupesh
 --
 
 SELECT pg_catalog.setval('public.employee_employee_id_seq', 24, true);
 
 
 --
--- Name: inventory_item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: inventory_item_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rupesh
 --
 
 SELECT pg_catalog.setval('public.inventory_item_id_seq', 7, true);
 
 
 --
--- Name: purchase_book_purchase_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: purchase_book_purchase_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rupesh
 --
 
 SELECT pg_catalog.setval('public.purchase_book_purchase_id_seq', 1, false);
 
 
 --
--- Name: accesses accesses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: accesses accesses_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.accesses
@@ -518,7 +518,7 @@ ALTER TABLE ONLY public.accesses
 
 
 --
--- Name: bill_book bill_book_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: bill_book bill_book_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.bill_book
@@ -526,7 +526,7 @@ ALTER TABLE ONLY public.bill_book
 
 
 --
--- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: category category_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.category
@@ -534,7 +534,7 @@ ALTER TABLE ONLY public.category
 
 
 --
--- Name: customer customer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: customer customer_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.customer
@@ -542,7 +542,7 @@ ALTER TABLE ONLY public.customer
 
 
 --
--- Name: dealers dealers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: dealers dealers_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.dealers
@@ -550,7 +550,7 @@ ALTER TABLE ONLY public.dealers
 
 
 --
--- Name: employee employee_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: employee employee_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.employee
@@ -558,7 +558,7 @@ ALTER TABLE ONLY public.employee
 
 
 --
--- Name: inventory inventory_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: inventory inventory_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.inventory
@@ -566,7 +566,7 @@ ALTER TABLE ONLY public.inventory
 
 
 --
--- Name: purchase_book purchase_book_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: purchase_book purchase_book_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.purchase_book
@@ -574,7 +574,7 @@ ALTER TABLE ONLY public.purchase_book
 
 
 --
--- Name: taxes taxes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: taxes taxes_pkey; Type: CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.taxes
@@ -582,7 +582,7 @@ ALTER TABLE ONLY public.taxes
 
 
 --
--- Name: bill_book bill_book_contact_no_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: bill_book bill_book_contact_no_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.bill_book
@@ -590,7 +590,7 @@ ALTER TABLE ONLY public.bill_book
 
 
 --
--- Name: employee employee_access_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: employee employee_access_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.employee
@@ -598,7 +598,7 @@ ALTER TABLE ONLY public.employee
 
 
 --
--- Name: inventory inventory_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: inventory inventory_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.inventory
@@ -606,7 +606,7 @@ ALTER TABLE ONLY public.inventory
 
 
 --
--- Name: purchase_book purchase_book_dealer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: purchase_book purchase_book_dealer_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.purchase_book
@@ -614,7 +614,7 @@ ALTER TABLE ONLY public.purchase_book
 
 
 --
--- Name: purchased_items purchased_items_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: purchased_items purchased_items_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.purchased_items
@@ -622,7 +622,7 @@ ALTER TABLE ONLY public.purchased_items
 
 
 --
--- Name: purchased_items purchased_items_purchase_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: purchased_items purchased_items_purchase_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.purchased_items
@@ -630,7 +630,7 @@ ALTER TABLE ONLY public.purchased_items
 
 
 --
--- Name: sold_items sold_items_bill_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: sold_items sold_items_bill_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.sold_items
@@ -638,7 +638,7 @@ ALTER TABLE ONLY public.sold_items
 
 
 --
--- Name: sold_items sold_items_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: sold_items sold_items_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rupesh
 --
 
 ALTER TABLE ONLY public.sold_items

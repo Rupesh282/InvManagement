@@ -365,9 +365,9 @@ cashier
 --
 
 COPY public.bill_book (bill_id, contact_no, net_discount, total_payment, total_tax, datetime) FROM stdin;
-3	123123	0.02	₹3,045.00	0.2	2017-03-14 00:00:00
-4	99999	0.02	₹9,045.00	0.2	2018-03-14 00:00:00
-5	99999	0.02	₹4,045.00	0.2	2017-04-24 00:00:00
+3	123123	0.02	3045	0.2	2017-03-14 00:00:00
+4	99999	0.02	9045	0.2	2018-03-14 00:00:00
+5	99999	0.02	4045	0.2	2017-04-24 00:00:00
 \.
 
 
@@ -424,12 +424,12 @@ COPY public.employee (employee_id, employee_password, first_name, last_name, con
 --
 
 COPY public.inventory (item_id, item_name, category_id, item_price, item_quantity, item_discount, item_tax) FROM stdin;
-2	Milk200ltr	9	₹200.00	20	0	0
-3	Srikhand500g	9	₹399.00	30	0	0
-4	Bourbon	7	₹20.00	100	0	0
-5	Gooday	7	₹15.00	120	0	0
-6	Sai Bread	6	₹10.00	50	0	0
-7	Nail Shampoo	5	₹5.00	400	0	0
+2	Milk200ltr	9	200	20	0	0
+3	Srikhand500g	9	399	30	0	0
+4	Bourbon	7	20	100	0	0
+5	Gooday	7	15	120	0	0
+6	Sai Bread	6	10	50	0	0
+7	Nail Shampoo	5	5	400	0	0
 \.
 
 
