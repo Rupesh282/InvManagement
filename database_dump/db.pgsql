@@ -29,7 +29,7 @@ CREATE TABLE public.accesses (
 );
 
 
-ALTER TABLE public.accesses OWNER TO postgres;
+ALTER TABLE public.accesses OWNER to postgres;
 
 --
 -- Name: bill_book; Type: TABLE; Schema: public; Owner: postgres
@@ -45,7 +45,7 @@ CREATE TABLE public.bill_book (
 );
 
 
-ALTER TABLE public.bill_book OWNER TO postgres;
+ALTER TABLE public.bill_book OWNER to postgres;
 
 --
 -- Name: bill_book_bill_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -60,7 +60,7 @@ CREATE SEQUENCE public.bill_book_bill_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.bill_book_bill_id_seq OWNER TO postgres;
+ALTER TABLE public.bill_book_bill_id_seq OWNER to postgres;
 
 --
 -- Name: bill_book_bill_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -79,7 +79,7 @@ CREATE TABLE public.category (
 );
 
 
-ALTER TABLE public.category OWNER TO postgres;
+ALTER TABLE public.category OWNER to postgres;
 
 --
 -- Name: category_category_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -94,7 +94,7 @@ CREATE SEQUENCE public.category_category_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.category_category_id_seq OWNER TO postgres;
+ALTER TABLE public.category_category_id_seq OWNER to postgres;
 
 --
 -- Name: category_category_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -114,7 +114,7 @@ CREATE TABLE public.customer (
 );
 
 
-ALTER TABLE public.customer OWNER TO postgres;
+ALTER TABLE public.customer OWNER to postgres;
 
 --
 -- Name: dealers; Type: TABLE; Schema: public; Owner: postgres
@@ -127,7 +127,7 @@ CREATE TABLE public.dealers (
 );
 
 
-ALTER TABLE public.dealers OWNER TO postgres;
+ALTER TABLE public.dealers OWNER to postgres;
 
 --
 -- Name: dealers_dealer_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -142,7 +142,7 @@ CREATE SEQUENCE public.dealers_dealer_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.dealers_dealer_id_seq OWNER TO postgres;
+ALTER TABLE public.dealers_dealer_id_seq OWNER to postgres;
 
 --
 -- Name: dealers_dealer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -165,7 +165,7 @@ CREATE TABLE public.employee (
 );
 
 
-ALTER TABLE public.employee OWNER TO postgres;
+ALTER TABLE public.employee OWNER to postgres;
 
 --
 -- Name: employee_employee_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -180,7 +180,7 @@ CREATE SEQUENCE public.employee_employee_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.employee_employee_id_seq OWNER TO postgres;
+ALTER TABLE public.employee_employee_id_seq OWNER to postgres;
 
 --
 -- Name: employee_employee_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -204,7 +204,7 @@ CREATE TABLE public.inventory (
 );
 
 
-ALTER TABLE public.inventory OWNER TO postgres;
+ALTER TABLE public.inventory OWNER to postgres;
 
 --
 -- Name: inventory_item_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -219,7 +219,7 @@ CREATE SEQUENCE public.inventory_item_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.inventory_item_id_seq OWNER TO postgres;
+ALTER TABLE public.inventory_item_id_seq OWNER to postgres;
 
 --
 -- Name: inventory_item_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -240,7 +240,7 @@ CREATE TABLE public.purchase_book (
 );
 
 
-ALTER TABLE public.purchase_book OWNER TO postgres;
+ALTER TABLE public.purchase_book OWNER to postgres;
 
 --
 -- Name: purchase_book_purchase_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -255,7 +255,7 @@ CREATE SEQUENCE public.purchase_book_purchase_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.purchase_book_purchase_id_seq OWNER TO postgres;
+ALTER TABLE public.purchase_book_purchase_id_seq OWNER to postgres;
 
 --
 -- Name: purchase_book_purchase_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -277,7 +277,23 @@ CREATE TABLE public.purchased_items (
 );
 
 
-ALTER TABLE public.purchased_items OWNER TO postgres;
+ALTER TABLE public.purchased_items OWNER to postgres;
+
+--
+-- Name: sold_items; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.sold_items (
+    bill_id integer,
+    item_id integer,
+    item_quantity character varying NOT NULL,
+    item_price money NOT NULL,
+    item_discount double precision,
+    item_tax double precision
+);
+
+
+ALTER TABLE public.sold_items OWNER to postgres;
 
 --
 -- Name: taxes; Type: TABLE; Schema: public; Owner: postgres
@@ -289,7 +305,7 @@ CREATE TABLE public.taxes (
 );
 
 
-ALTER TABLE public.taxes OWNER TO postgres;
+ALTER TABLE public.taxes OWNER to postgres;
 
 --
 -- Name: bill_book bill_id; Type: DEFAULT; Schema: public; Owner: postgres
@@ -430,6 +446,14 @@ COPY public.purchase_book (purchase_id, dealer_id, net_payment, datetime) FROM s
 --
 
 COPY public.purchased_items (purchase_id, item_id, item_name, item_base_price, item_quantity) FROM stdin;
+\.
+
+
+--
+-- Data for Name: sold_items; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.sold_items (bill_id, item_id, item_quantity, item_price, item_discount, item_tax) FROM stdin;
 \.
 
 
@@ -603,6 +627,22 @@ ALTER TABLE ONLY public.purchased_items
 
 ALTER TABLE ONLY public.purchased_items
     ADD CONSTRAINT purchased_items_purchase_id_fkey FOREIGN KEY (purchase_id) REFERENCES public.purchase_book(purchase_id);
+
+
+--
+-- Name: sold_items sold_items_bill_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sold_items
+    ADD CONSTRAINT sold_items_bill_id_fkey FOREIGN KEY (bill_id) REFERENCES public.bill_book(bill_id);
+
+
+--
+-- Name: sold_items sold_items_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sold_items
+    ADD CONSTRAINT sold_items_item_id_fkey FOREIGN KEY (item_id) REFERENCES public.inventory(item_id);
 
 
 --
