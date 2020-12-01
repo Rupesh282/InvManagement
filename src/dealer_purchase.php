@@ -92,6 +92,7 @@ if(isset($_SESSION["loggedIn"]) and $_SESSION["loggedIn"] == true and ($_SESSION
     $items = $PG_CLIENT->query_select($qry);
     $qry = "select * from category";
     $category = $PG_CLIENT->query_select($qry);
+    #vegeta
     if(isset($_POST['make_bill'])){
         $item_count=$_POST['item_count'];
         $dealer_id=$_POST['contact_no'];
