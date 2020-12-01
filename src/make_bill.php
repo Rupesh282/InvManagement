@@ -1,5 +1,9 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../function.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 <script>
 
     function autocomplete(given_items) {
@@ -122,10 +126,16 @@ if(isset($_SESSION["loggedIn"]) and $_SESSION["loggedIn"] == true and ($_SESSION
                 $item_price = $res[0]['item_price'];
                 $item_discount = $res[0]['item_discount'];
                 $item_tax = $res[0]['item_tax'];
-                $item_price = (float)substr($item_price, 1);
-//                    print('\n'.$item_price);
+//                $item_price = substr($item_price, 1);
+//                echo "Size: ".count($item_price);
+                for($i=2;$i<count($item_price);$i+=1){
+                    print($item_price[$i].'<br>');
+                }
+
+//                    print($item_price);
 //                    print(gettype($item_price));
 //                    echo "<br><br>";
+                    die("here");
                 $final_price=(intval($item_price) * intval($item_quan) * (1-floatval($item_discount)) * (1+floatval($item_tax)) );
 //                    print(gettype($item_price));
                 $valid_items[] = (array('ID' => $item_id, 'Name' => $item_name, 'Quantity' => $item_quan, 'Price' => $item_price, 'Discount' => $item_discount, 'Tax' => $item_tax, 'Net price'=>$final_price));
@@ -199,7 +209,7 @@ echo"
     
             
      <div align='center' xmlns=\"http://www.w3.org/1999/html\">
-        MAKE BILL <br><br>
+        <h2> MAKE BILL </h2><br><br>
         <input type='text' name='contact_no' form='bill_form' placeholder='Enter customer contact no.' required>
         <h4>Enter the item name and select from suggestion list</h4>
         
@@ -207,12 +217,14 @@ echo"
             <input name='item' id='item' class='item' placeholder='Enter item name' required></input>
             <input name='quantity' id='quantity' placeholder='Enter quantity'required></input>
             <br><br>
-            <button name='add_item' onclick=window.add_item()>Add</button>
-            <input type='submit' name='make_bill' form='bill_form'>
+            <button name='add_item' class='btn btn-primary' onclick=window.add_item()>Add</button>
+            <input type='submit'  class='btn btn-primary' name='make_bill' form='bill_form'>
             <form action='make_bill.php' id='bill_form' onsubmit='putTotalItems()' method='POST'>
-            <input type='hidden' name='item_count' id='item_count'>
+            <input type='hidden' name='item_count' id='item_count'> <br>
+            <button class='btn btn-danger' onclick='redirect_home(0)'>Back</button>
             <br><br><h2>Added Items</h2>         
             <table id='bill'>
+            
             
 ";?>
 <?php

@@ -48,7 +48,6 @@ class pg_client {
     }
 
     function query_update($sql_qry) {
-        print($sql_qry);
         $result = pg_query($this->pg_connection, $sql_qry);
         if ($result == false) {
             die_print(pg_last_error(), "pg_client.php");
