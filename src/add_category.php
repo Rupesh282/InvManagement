@@ -30,6 +30,7 @@ if(isset($_SESSION['loggedIn']) and $_SESSION['loggedIn'] and ($_SESSION['access
 {
     echo " <br>
     <div align='center'>
+        Add Category:<br>
         <form action='add_category.php'>
             Category name: <input type='text' name='category_name'> <br><br>
             <button type='submit' class='btn btn-primary'>Submit</button>

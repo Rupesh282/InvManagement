@@ -38,6 +38,7 @@ else
 "
     <br><br>
     <div align='center'>
+        <h2>Add Dealer</h2><br>
         <form action='add_dealer.php'>
             Dealer Name : <input type='text' name= 'dealer_name'> <br><br>
             Contact No : <input type='text' name='dealer_contact_no'> <br><br>

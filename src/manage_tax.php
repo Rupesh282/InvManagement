@@ -43,6 +43,7 @@
 <?=
 "
     <div align='center'>
+        <h2>Manage Taxes</h2>
         Press submit to change the values<br><br>
         <form action='manage_tax.php' method='POST'> 
 "

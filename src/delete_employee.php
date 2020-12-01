@@ -32,6 +32,7 @@
 
 <?=
 "
+    <h2 align='center'>Remove Employees</h2>
     <div align='left'>
          select Id of  Employee for removing it: <br><br>
         <form action='delete_employee.php' method='post'>
@@ -55,7 +56,7 @@
         </form>
         <button class='btn btn-danger' onclick='go_to_owner_dash();'> Back </button>
     </div><br>
-    
+    All Employees : 
 "
 ?>
 

@@ -10,9 +10,12 @@
     session_start();
 
     if($_SESSION['loggedIn']) {
+        echo "<div align='center'>";
+        echo "<br><br>All Stocks : ";
         $sql_qry = "select * from inventory";
         $res = $PG_CLIENT->query_select($sql_qry);
         echo $PG_CLIENT->build_table($res);
+        echo "</div>";
     } else {
         die("<h3>Login required</h3><a href='../index.php'><button>Go to login page</button></a>");
     }

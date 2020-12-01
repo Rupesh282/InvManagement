@@ -39,6 +39,7 @@
 ?>
 <br><br>
 <div align="center">
+    <h2>Change Your Password</h2><br>
     <form action="change_password.php" method="POST">
         <input name="password" type="password" placeholder="enter new password" required><br><br>
         <input name="recheck" type="password" placeholder="re-enter password" required><br><br>

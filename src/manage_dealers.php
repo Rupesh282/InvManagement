@@ -35,6 +35,7 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] && ($_SESSION['access']
 <?=
 "
     <div align='center'>
+        <h2>Manage Dealers</h2>
         Press submit to change the values<br><br>
         <form action='manage_dealers.php' method='POST'> 
 "
