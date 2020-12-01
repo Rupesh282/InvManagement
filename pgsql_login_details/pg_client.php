@@ -1,3 +1,4 @@
+
 <?php
     $data_base_config = include "login_details.php";
 
@@ -57,17 +58,17 @@ class pg_client {
     }
 
     function build_table($array) {
-        $html = '<table border="1px solid black" style="border-collapse: collapse;">';
-        $html .= '<tr>';
+        $html = '<table class="table">';
+        $html .= '<tr scope="row">';
         if(count($array) != 0) {
             foreach ($array[0] as $key => $value) {
-                $html .= '<th>' . htmlspecialchars($key) . '</th>';
+                $html .= '<th scope="col">' . htmlspecialchars($key) . '</th>';
             }
             $html .= '</tr>';
             foreach ($array as $key => $value) {
-                $html .= '<tr>';
+                $html .= '<tr scope="row">';
                 foreach ($value as $key2 => $value2) {
-                    $html .= '<td>' . htmlspecialchars($value2) . '</td>';
+                    $html .= '<td scope="col">' . htmlspecialchars($value2) . '</td>';
                 }
                 $html .= '</tr>';
             }
