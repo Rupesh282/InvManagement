@@ -36,6 +36,7 @@
         <a style='padding-left: 100px' href='dealer_purchase.php'><button style='width: 20%' class='btn btn-success btn-lg'>Purchase from dealers</button></a>
         <a style='padding-left: 100px' href='show_bills.php'><button style='width: 20%' class='btn btn-success btn-lg'>Show Bills</button></a>
         <a style='padding-left: 100px' href='make_bill.php'><button style='width: 20%' class='btn btn-success btn-lg'>Make bill</button></a> <br> <br>
+        <a style='padding-left: 100px' href='add_customer.php'><button style='width: 20%' class='btn btn-success btn-lg'>Add Customer</button></a> <br> <br>
 "
 ?>
 

@@ -27,7 +27,8 @@
         <hr>
         <a style='padding-left: 100px' href='show_stock.php'><button style='width: 20%' class='btn btn-success btn-lg'>Show stock</button></a>
         <a style='padding-left: 100px' href='change_password.php'><button style='width: 20%' class='btn btn-success btn-lg'>Change password</button></a>      
-        <a style='padding-left: 100px' href='make_bill.php'><button style='width: 20%' class='btn btn-success btn-lg'>Make Bill</button></a>
+        <a style='padding-left: 100px' href='make_bill.php'><button style='width: 20%' class='btn btn-success btn-lg'>Make Bill</button></a><br><br>
+        <a style='padding-left: 100px' href='add_customer.php'><button style='width: 20%' class='btn btn-success btn-lg'>Add Customer</button></a> <br> <br>
    "
 ?>
 

@@ -21,12 +21,13 @@
 ?>
 <?=
 "
-        <h1>HI , {$name} !</h1> 
+        <h1>Welcome , {$name} !</h1> 
         <button class='btn btn-danger' onclick='logout();'>Log Out</button>
         <hr>
         <a style='padding-left: 100px' href='show_stock.php'><button style='width: 20%' class='btn btn-success btn-lg'>Show stock</button></a>
         <a style='padding-left: 100px' href='add_category.php'><button style='width: 20%' class='btn btn-success btn-lg'>Add category</button></a>
-        <a style='padding-left: 100px' href='change_password.php'><button style='width: 20%' class='btn btn-success btn-lg'>Change password</button></a>
+        <a style='padding-left: 100px' href='change_password.php'><button style='width: 20%' class='btn btn-success btn-lg'>Change password</button></a> <br><br>
+        <a style='padding-left: 100px' href='add_customer.php'><button style='width: 20%' class='btn btn-success btn-lg'>Add Customer</button></a> <br> <br>
    "
 ?>
 <h5 style="position: absolute; bottom: 0; right: 0">Manager DashBoard</h5>
