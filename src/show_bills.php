@@ -1,4 +1,10 @@
 <script type="text/javascript" src="../function.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 <?php
     //queries
     //select * from bill_book order by datetime ASC;
@@ -24,31 +30,32 @@
 
 <?=
 "
-    <center><h2>BILL CHECKING PORTAL</h2></center>
+    <center><h2>BILL CHECKING PORTAL</h2></center> <hr>
     <div align='left'>
         <form action='show_bills.php' method='POST'>
-            <input type='submit' name='show_all' value='show All bills'> <br><br>
-        </form>
+            <input type='submit' class='btn btn-primary' name='show_all' value='show All bills'> <br><br>
+        </form><hr>
         <form action='show_bills.php' method='POST'>
-            <input type='submit' name='show_on_datetime' value='show on date'> <br><br>
+            <input type='submit' class='btn btn-primary' name='show_on_datetime' value='show on date'> <br><br>
             From : <input type='date' name='from_date' required> 
             To   : <input type='date' name='to_date' value='to_date' id='to_date' required> <br><br>
-        </form>
+        </form><hr>
         <form action='show_bills.php' method='POST'>
-            <input type='submit' name='show_on_customer' value='show on customer'> <br><br>
+            <input type='submit' class='btn btn-primary' name='show_on_customer' value='show on customer'> <br><br>
             Customer No. : <input type='text' name='contact_no' required> <br><br>
-        </form>
+        </form><hr>
         <form action='show_bills.php' method='POST'>
-            <input type='submit' name='show_on_bill_id' value='show on bill Id'> <br><br>
+            <input type='submit' class='btn btn-primary' name='show_on_bill_id' value='show on bill Id'> <br><br>
             Bill Id : <input type='text' name='bill_id' id='bill_id' required>
-        </form>
-        <button onclick='redirect_home(0)'>Back</button>
+        </form><hr>
+        <button class='btn btn-danger' onclick='redirect_home(0)'>Back</button>
     </div>
 "
 ?>
 
 <?php
     endl();
+    echo "<center>";
     if(isset($_POST['show_all'])) {
         echo "Showing all bills : ";
         endl();
@@ -57,7 +64,7 @@
         if(count($res) == 0) {
             printRed();
         } else {
-        echo $PG_CLIENT->build_table($res);
+            echo $PG_CLIENT->build_table($res);
         }
     } else if(isset($_POST['show_on_datetime'])) {
         $from_date = $_POST['from_date'];
@@ -94,8 +101,8 @@
             echo $PG_CLIENT->build_table($res);
         }
     }
+    echo "</center>";
 ?>
-
 <script>
     document.getElementById("to_date").value = new Date().toISOString().slice(0,10);
 </script>
