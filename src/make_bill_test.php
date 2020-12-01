@@ -18,15 +18,16 @@
         $(ele ).autocomplete({
             invalidClass:'invalid',
             source: availableTags,
-            // change: function (event, ui) {
-            //     // if(!ui.item){
-            //     //     //http://api.jqueryui.com/autocomplete/#event-change -
-            //     //     // The item selected from the menu, if any. Otherwise the property is null
-            //     //     //so clear the item for force selection
-            //     //     $("." + ele).val("");
-            //     // }
-            //
-            // }
+            change: function (event, ui) {
+                if(!ui.item.label){
+                    //http://api.jqueryui.com/autocomplete/#event-change -
+                    // The item selected from the menu, if any. Otherwise the property is null
+                    //so clear the item for force selection
+                    $("." + ele).val("");
+                    $(".item_id").val("");
+                }
+
+            },
             select: function(event, ui)
             {
                 var id = ui.item.value;
@@ -51,16 +52,19 @@
     // var select_quantity = "<input placeholder=\"quantity\" type=\"text\" name=\"quantity"+(item_count+1)+"\">";
     function add_item(){
         console.log("yeah");
-//        var select = `<input class=\"item"+(item_count+1)+"\" name=\"item"+(item_count+1)+"\" required></input> `;
-//        var select_quantity = `<input placeholder=\"quantity\" type=\"text\" name=\"quantity"+(item_count+1)+"\" required ></input>`;
-//        var select ="test";
-//        var select_quantity ="test1";
-//        var t=document.getElementById("bill");
-//        t.insertRow(item_count+1).insertCell(0).innerHTML=select ;
-//        t.rows[item_count+1].insertCell(1).innerHTML=select_quantity;
-//        var p=document.getElementById("num_ele");
-//        p.value = item_count;
-//        item_count++;
+        var id = document.getElementById("item_id").value;
+        var name = document.getElementById("item").value;
+        var quantity = document.getElementById("quantity").value;
+        if( id!="" && name!= "" && quantity != ""){
+            var select_id = "<input class=\"id"+(item_count+1)+"\" name=\"id"+(item_count+1)+"\" readonly value=\""+(id)+"\">";
+            var select = "<input class=\"item"+(item_count+1)+"\" name=\"item"+(item_count+1)+"\" readonly value=\""+(name)+"\">";
+            var select_quantity = "<input placeholder=\"quantity\" type=\"text\" name=\"quantity"+(item_count+1)+"\" readonly value=\""+(quantity)+"\">";
+            var t = document.getElementById("bill");
+            t.insertRow(item_count + 1).insertCell(0).innerHTML = select_id + '</input>';
+            t.rows[item_count + 1].insertCell(1).innerHTML = select + '</input>';
+            t.rows[item_count + 1].insertCell(2).innerHTML = select_quantity + '</input>';
+            item_count++;
+        }
     }
 </script>
 <?php
@@ -97,14 +101,15 @@ echo '
 
 ';
 echo"
+    <button name='add_item' onclick=window.add_item()>Add</button>
+            
      <div align='center' xmlns=\"http://www.w3.org/1999/html\">
         MAKE BILL <br><br>
-        <form action='make_bill.php' method='POST'>
-            <input name='item_id' id='item_id' class='item_id' hidden></input>
+        <form action='make_bill_test.php' method='POST'>
+            <input name='item_id' id='item_id' class='item_id' readonly></input>
             <input name='item' id='item' class='item' placeholder='Enter item name' required></input>
             <input name='quantity' id='quantity' placeholder='Enter quantity'required></input>
             <br><br>
-            <button name='add_item' onclick=add_item()>Add</button>
             <input type='submit' name='make_bill'></input>
          
          
@@ -112,7 +117,10 @@ echo"
             <tr colspan='2'></tr>
 ";?>
 <?php
-echo "<tr>        
+echo "<tr>    
+           <td>
+		      <input class='id1' name='id1' readonly></input>
+            </td>    
             <td>
 		      <input class='item1' name='item1' readonly></input>
             </td>
