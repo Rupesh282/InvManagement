@@ -55,14 +55,23 @@
         var id = document.getElementById("item_id").value;
         var name = document.getElementById("item").value;
         var quantity = document.getElementById("quantity").value;
-        if( id!="" && name!= "" && quantity != ""){
+        var b_price = document.getElementById("base_price").value;
+        var s_price = document.getElementById("selling_price").value;
+        var category = document.getElementById("category").value;
+        if( id!="" && name!= "" && quantity != "" && b_price!="" && s_price!="" && category!=""){
             var select_id = "<input class=\"id"+(item_count+1)+"\" name=\"id"+(item_count+1)+"\" readonly value=\""+(id)+"\">";
             var select = "<input class=\"item"+(item_count+1)+"\" name=\"item"+(item_count+1)+"\" readonly value=\""+(name)+"\">";
             var select_quantity = "<input placeholder=\"quantity\" type=\"text\" name=\"quantity"+(item_count+1)+"\" readonly value=\""+(quantity)+"\">";
+            var select_bprice =  "<input class=\"b_price"+(item_count+1)+"\" name=\"b_price"+(item_count+1)+"\" readonly value=\""+(b_price)+"\">";
+            var select_sprice =  "<input class=\"s_price"+(item_count+1)+"\" name=\"s_price"+(item_count+1)+"\" readonly value=\""+(s_price)+"\">";
+            var category = "<input class=\"category"+(item_count+1)+"\" name=\"category"+(item_count+1)+"\" readonly value=\""+(category)+"\">";
             var t = document.getElementById("bill");
             t.insertRow(item_count).insertCell(0).innerHTML = select_id + '</input>';
             t.rows[item_count].insertCell(1).innerHTML = select + '</input>';
             t.rows[item_count].insertCell(2).innerHTML = select_quantity + '</input>';
+            t.rows[item_count].insertCell(3).innerHTML = select_bprice + '</input>';
+            t.rows[item_count].insertCell(4).innerHTML = select_sprice + '</input>';
+            t.rows[item_count].insertCell(5).innerHTML = category + '</input>';
             item_count++;
         }
     }
@@ -78,13 +87,15 @@ $PG_CLIENT = include "../pgsql_login_details/pg_client.php";
 session_start();
 echo "<style> .ui-helper-hidden-accessible { display:none; } </style>";
 
-if(isset($_SESSION["loggedIn"]) and $_SESSION["loggedIn"] == true and ($_SESSION["access"]=="cashier" || $_SESSION["access"]=="owner" )) {
+if(isset($_SESSION["loggedIn"]) and $_SESSION["loggedIn"] == true and ($_SESSION["access"]=="manager" || $_SESSION["access"]=="owner" )) {
     $qry = "select * from inventory";
     $items = $PG_CLIENT->query_select($qry);
+    $qry = "select * from category";
+    $category = $PG_CLIENT->query_select($qry);
     if(isset($_POST['make_bill'])){
         $item_count=$_POST['item_count'];
-        $contact_no=$_POST['contact_no'];
-        $qry="select * from customer where contact_no='$contact_no'";
+        $dealer_id=$_POST['contact_no'];
+        $qry="select * from dealer where dealer_id='$dealer_id'";
         $res=$PG_CLIENT->query_select($qry);
         if(count($res)==0)
         {
@@ -142,7 +153,7 @@ if(isset($_SESSION["loggedIn"]) and $_SESSION["loggedIn"] == true and ($_SESSION
 
         }
         $current_dt = date('Y-m-d H:i:s');
-        $qry="insert into bill_book(contact_no,net_discount,total_payment,total_tax,datetime) values($contact_no,
+        $qry="insert into bill_book(contact_no,net_discount,total_payment,total_tax,datetime) values($dealer_id,
 $total_discount,$total_payment,$total_tax,'$current_dt')";
         $PG_CLIENT->query_update($qry);
         $qry="select bill_id from bill_book order by bill_id DESC limit 1";
@@ -199,13 +210,29 @@ echo"
     
             
      <div align='center' xmlns=\"http://www.w3.org/1999/html\">
-        MAKE BILL <br><br>
-        <input type='text' name='contact_no' form='bill_form' placeholder='Enter customer contact no.' required>
-        <h4>Enter the item name and select from suggestion list</h4>
+        BUY from dealers <br><br>
+        <input type='text' name='contact_no' form='bill_form' placeholder='Enter Dealer ID' required>
+        <h4>Enter the items name and select from suggestion list</h4>
         
             <input name='item_id' id='item_id' class='item_id' readonly></input>
             <input name='item' id='item' class='item' placeholder='Enter item name' required></input>
-            <input name='quantity' id='quantity' placeholder='Enter quantity'required></input>
+            
+";?>
+<?php
+
+    echo "<select name='category' id='category' class='category' placeholder='Catogory' required>";
+    for($i=0; $i<count($category); $i++) {
+        $name = $category[$i]['category_name'];
+        $id = $category[$i]['category_id'];
+        echo "<option value=$id>$name</option>";
+    }
+    echo "</select>";
+?>
+<?="
+            <input name='quantity' id='quantity' class='quantity' placeholder='Enter quantity'required></input>
+            <input name='base_price' id='base_price' class='base_price' placeholder='Enter Base price'required></input>
+            <input name='selling_price' id='selling_price' class='selling_price' placeholder='Enter selling price'required></input>
+            
             <br><br>
             <button name='add_item' onclick=window.add_item()>Add</button>
             <input type='submit' name='make_bill' form='bill_form'>
