@@ -110,7 +110,7 @@
                 $item_id=$arr[0];
                 $item_name=$arr[1];
                 $item_quan=$arr[2];
-                $qry="select convert(int, round(item_price, 0)) * from inventory where item_id=$item_id and item_name='$item_name'";
+                $qry="select * from inventory where item_id=$item_id and item_name='$item_name'";
                 $res=$PG_CLIENT->query_select($qry);
                 //echo "res<br>";
                 //print_r($res);
@@ -122,9 +122,12 @@
                     $item_price = $res[0]['item_price'];
                     $item_discount = $res[0]['item_discount'];
                     $item_tax = $res[0]['item_tax'];
+                    $item_price = (float)substr($item_price, 1);
+//                    print('\n'.$item_price);
+//                    print(gettype($item_price));
+//                    echo "<br><br>";
                     $final_price=(intval($item_price) * intval($item_quan) * (1-floatval($item_discount)) * (1+floatval($item_tax)) );
-                    print(gettype($item_price));
-                    print(intval($item_price));
+//                    print(gettype($item_price));
                     $valid_items[] = (array('ID' => $item_id, 'Name' => $item_name, 'Quantity' => $item_quan, 'Price' => $item_price, 'Discount' => $item_discount, 'Tax' => $item_tax, 'Net price'=>$final_price));
                     $total_payment += $item_price * $item_quan;
                     $total_tax += $item_price * $item_quan * $item_tax;
